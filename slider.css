@@ -1,0 +1,892 @@
+body {
+    margin: 0;
+    text-align: center;
+}
+
+.slider {
+    /* устанавливаем относительное позиционирование элементу */
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    width: 1228px;
+    height: 484px !important;
+}
+
+.slider__items {
+    /* устанавливаем относительное позиционирование элементу */
+    position: relative;
+    /* устанавливаем элементу ширину, равную 100% */
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider__item {
+    /* устанавливаем относительное позиционирование элементу */
+    position: relative;
+    /* отключаем по умолчанию отображение всех слайдов */
+    display: none;
+    /* устанавливаем элементу ширину, равную 100% */
+    width: 1228px;
+    /* длительность анимации трансформации */
+    transition: transform 0.6s ease;
+    /* не показывать обратную сторону трансформируемого элемента */
+    backface-visibility: hidden;
+}
+
+.slider__item_active,
+.slider__item_next,
+.slider__item_prev {
+    /* отображаем слайд, если он имеет один из этих классов */
+    display: flex;
+}
+
+.slider__item_next,
+.slider__item_prev {
+    /* устанавливаем абсолютное позиционирование для элемента, на который будет сменяться слайд (на время трансформации) */
+    position: absolute;
+    /* устанавливаем положение элемента, т.е. координату top */
+    top: 0;
+}
+
+.slider__item_next.slider__item_left,
+.slider__item_prev.slider__item_right {
+    /* сдвигаем элемент на 0 по горизонтали */
+    transform: translateX(0);
+}
+
+.slider__item_next,
+.slider__item_right.slider__item_active {
+    /* сдвигаем элемент на 100% по горизонтали */
+    transform: translateX(100%);
+}
+
+.slider__item_prev,
+.slider__item_left.slider__item_active {
+    /* сдвигаем элемент на -100% по горизонтали */
+    transform: translateX(-100%);
+}
+
+/* элементы управления (назад и вперёд) слайдером */
+
+.slider__control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+    opacity: 0.4;
+    background: grey;
+    width: 130px;
+
+}
+
+.slider__control:hover,
+.slider__control:focus {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    opacity: .9;
+}
+
+.slider__control_prev {
+    left: 0;
+}
+
+.slider__control_next {
+    right: 0;
+}
+
+.slider__control::before {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.slider__control_prev::before {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.slider__control_next::before {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+/* индикаторы слайдера */
+
+.slider__indicators {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+}
+
+.slider__indicator {
+    position: relative;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+}
+
+.slider__indicator::before {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 10px;
+    content: "";
+}
+
+.slider__indicator::after {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 10px;
+    content: "";
+}
+
+.slider__indicator_active {
+    background-color: #fff;
+}
+
+.slider img {
+
+    width: 1280px;
+    height: 445px;
+}
+
+.end img{
+
+
+}
+
+.dual img{
+
+}
+
+.slider-item {
+    height: 484px;
+
+}
+.slider__item > .slider-item{
+    display: inline-block;
+}
+.slider__items{
+    display: flex;
+}
+
+.none-hover{
+    display: none !important;
+}
+
+.active-hover{
+    /*width: 1228px !important;
+    height: 484px !important;
+    background-position: 61.5% 14% !important;
+    transition: 1s;*/
+}
+
+.img-container{
+    background-repeat: no-repeat;
+    position:relative;
+    float: left;
+    overflow: hidden;
+}
+
+.slider__item .slider__item_active{
+    width: 1200px;
+    height: 445px;
+}
+.slider-item .right .dual{
+    width: 500px;
+    height: auto;
+}
+
+
+.right-bottom{
+    background-position: 81% 39%;
+    width: 500px;
+    height: 242px;
+    position: absolute;
+    left: 728px;
+    top: 50%;
+
+}
+
+.right-top{
+    background-position: 81% 10%;
+    width: 500px;
+    height: 242px;
+    position: absolute;
+    left: 728px;
+}
+
+.left-bottom{
+    background-position: 30% 39%;
+    width: 500px;
+    height: 242px;
+    position: absolute;
+    top: 50%;
+}
+
+.left-top{
+    background-position: 30% 10%;
+    width: 500px;
+    height: 242px;
+    position: absolute;
+}
+
+.center{
+    background-position: 54.65% 14.2%;
+    width: 228px;
+    height: 484px;
+    position: absolute;
+    left: 500px;
+}
+
+
+.right-top-unhover{
+    animation-duration: 0.5s;
+    animation-name: unhover-background4;
+}
+
+.left-top-unhover{
+    animation-duration: 0.5s;
+    animation-name: unhover-background1;
+}
+
+.left-bottom-unhover{
+    animation-duration: 0.5s;
+    animation-name: unhover-background2;
+}
+
+.center-unhover{
+    animation-duration: 0.5s;
+    animation-name: unhover-background3;
+}
+
+.right-bottom-unhover{
+    animation-duration: 0.5s;
+    animation-name: unhover-background5;
+}
+
+
+.right-bottom-hover:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: hover-background5;
+}
+
+.right-top-hover:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: hover-background4;
+}
+
+.left-bottom-hover:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: hover-background2;
+}
+
+.left-top-hover:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: hover-background1;
+}
+
+.center-hover:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: hover-background3;
+}
+
+@keyframes unhover-background5 {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    to {
+        z-index: 0;
+        width: 500px;
+        height: 242px;
+        position: absolute;
+        left: 59.3%;
+        top: 50%;
+    }
+}
+
+@keyframes unhover-background1 {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+    }
+    to {
+        z-index: 0;
+        width: 500px;
+        height: 242px;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+}
+
+@keyframes unhover-background2 {
+
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        top: 0%;
+    }
+    to {
+        z-index: 0;
+        width: 500px;
+        height: 242px;
+        position: absolute;
+        left: 0%;
+        right: 50%;
+    }
+}
+
+@keyframes unhover-background3 {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+
+    }
+
+    to {
+        z-index: 0;
+        width: 228px;
+        height: 484px;
+        position: absolute;
+        left: 40.7%;
+        right: 40%;
+    }
+}
+
+@keyframes unhover-background4 {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+    }
+
+    to {
+        z-index: 0;
+        width: 500px;
+        height: 242px;
+        position: absolute;
+        right: 0%;
+        top: 0%;
+    }
+}
+
+@keyframes hover-background5 {
+
+    to {
+        width: 1228px;
+        height: 484px;
+        left: 0%;
+        top: 0%;
+
+    }
+}
+
+@keyframes hover-background1 {
+
+
+    to {
+        width: 1228px;
+        height: 484px;
+        left: 0%;
+    }
+}
+
+@keyframes hover-background2 {
+
+
+    to {
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        top: 0%;
+    }
+}
+
+@keyframes hover-background3 {
+
+
+    to {
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+}
+
+@keyframes hover-background4 {
+
+    to {
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+
+    }
+}
+
+.slider-content{
+    margin-top: 17%;
+    display: none;
+}
+
+.arrow-desktop{
+    z-index: 100;
+}
+
+.decktop-slider .slider__indicator:not(.slider__indicator_active){
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 0, 0, 0.39);
+}
+
+.decktop-slider .slider__indicator_active{
+    background-color: rgb(255, 0, 0);
+    width: 30px;
+    height: 30px;
+}
+
+.decktop-slider{
+    bottom: -40px;
+}
+
+.decktop-item{
+    height: 484px;
+}
+.one-image{
+    width: 1228px;
+    height: 484px;
+    left: 0px;
+    background-position: 54.65% 14.2%;
+}
+.left-image{
+    background-position: 54.65% 14.2%;
+    height: 484px;
+    width: 614px;
+    position: absolute;
+    left: 0px;
+
+}
+.right-image{
+    background-position: 54.65% 14.2%;
+    position: absolute;
+    height: 484px;
+    width: 614px;
+    left: 50%;
+}
+
+.left-hover:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: hover-left;
+}
+.right-hover:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: hover-right;
+}
+
+
+.center-unhover-left{
+    background-position: 54.65% 14.2%;
+    animation-duration: 0.5s;
+    animation-name: unhover-background-left;
+}
+.center-unhover-right{
+    background-position: 54.65% 14.2%;
+    animation-duration: 0.5s;
+    animation-name: unhover-background-right;
+}
+
+@keyframes hover-right {
+    to{
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+
+    }
+
+}
+@keyframes hover-left {
+    to{
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+
+    }
+
+}
+
+
+
+@keyframes unhover-background-left {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        right: 0%;
+
+    }
+
+    to {
+        z-index: 0;
+        width: 50%;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+    }
+}
+
+@keyframes unhover-background-right {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+
+    }
+
+    to {
+        z-index: 0;
+        width: 50%;
+        height: 484px;
+        position: absolute;
+        right: 0%;
+    }
+}
+
+.right-top-four:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: right-top-four-hover;
+}
+
+.right-bottom-four:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: right-bottom-four-hover;
+}
+
+.left-bottom-four:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: left-bottom-four-hover;
+}
+
+.left-top-four:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: left-top-four-hover;
+}
+
+.left-top-four-unhover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: left-top-four-unh;
+}
+
+.right-top-four-unhover{
+    background-position: 54.65% 14.2%;
+    animation-duration: 0.5s;
+    animation-name: right-top-four-unh;
+}
+
+.right-bottom-four-unhover{
+    background-position: 54.65% 14.2%;
+    animation-duration: 0.5s;
+    animation-name: right-bottom-four-unh;
+}
+
+.left-bottom-four-unhover{
+    background-position: 54.65% 14.2%;
+    animation-duration: 0.5s;
+    animation-name: left-bottom-four-unh;
+}
+
+
+
+@keyframes right-top-four-hover{
+    to {
+        width: 1228px;
+        height: 484px;
+        left: 0%;
+    }
+}
+
+@keyframes right-bottom-four-hover {
+    to {
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+    }
+}
+
+@keyframes right-bottom-four-unh {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+
+    to {
+        z-index: 0;
+        width: 614px;
+        height: 242px;
+        left: 50%;
+        top:50%;
+    }
+}
+
+@keyframes left-bottom-four-hover {
+    to {
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+}
+
+
+
+@keyframes right-top-four-unh {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+    to {
+        z-index: 0;
+        width: 614px;
+        left: 50%;
+        height: 242px;
+        position: absolute;
+        top: 0%;
+    }
+}
+
+
+.four-left-top-four{
+    width: 614px;
+    height: 242px;
+    position: absolute;
+    background-position: 37% 29%;
+}
+
+.four-left-bottom-four{
+    width: 614px;
+    height: 242px;
+    top: 50%;
+    background-position: 37% 0%;
+    position: absolute;
+}
+
+@keyframes left-top-four-hover {
+    to {
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+
+    }
+}
+
+@keyframes left-top-four-unh {
+
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        top: 0%;
+    }
+    to {
+        z-index: 0;
+        width: 614px;
+        height: 242px;
+        position: absolute;
+        top: 0%;
+    }
+}
+
+@keyframes left-bottom-four-unh {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+
+    }
+
+    to {
+        z-index: 0;
+        width: 614px;
+        height: 484px;
+        position: absolute;
+        top: 50%;
+        bottom: 0%;
+    }
+}
+
+
+.four-right-bottom-four{
+    width: 614px;
+    height: 242px;
+    left: 50%;
+    top:50%;
+    position: absolute;
+    background-position: 85% 31%;
+}
+
+.four-right-top-four{
+    width: 614px;
+    left: 50%;
+    height: 242px;
+    position: absolute;
+    background-position: 85% 0%;
+}
+
+
+
+
+.left-free{
+    background-position: 30% 39%;
+    width: 500px;
+    height: 484px;
+    position: absolute;
+}
+.right-free{
+    background-position: 81% 39%;
+    width: 500px;
+    height: 484px;
+    position: absolute;
+    left: 728px;
+}
+.left-free-hover:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: hover-left;
+}
+.right-free-hover:hover{
+    z-index: 10;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-name: hover-right;
+}
+.unhover-left{
+    animation-duration: 0.5s;
+    animation-name: unhover-left;
+}
+.unhover-right{
+    animation-duration: 0.5s;
+    animation-name: unhover-right;
+}
+
+@keyframes unhover-left {
+    from {
+        z-index: 10;
+        width: 1228px;
+
+    }
+
+    to {
+        z-index: 0;
+        width: 500px;
+
+    }
+}
+
+@keyframes unhover-right {
+    from {
+        z-index: 10;
+        width: 1228px;
+        height: 484px;
+        position: absolute;
+        left: 0%;
+
+    }
+
+    to {
+        z-index: 0;
+        width: 500px;
+        height: 484px;
+        position: absolute;
+        right: 0%;
+    }
+}
